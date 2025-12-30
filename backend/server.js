@@ -1,24 +1,15 @@
 const express = require("express");
-const app = express();
+const connectDB = require("./config/db");
 
+const app = express();
 app.use(express.json());
+
+// DB connection
+connectDB();
 
 // Test route
 app.get("/", (req, res) => {
-  res.send("Student Management System Backend Running");
-});
-
-// Role test routes
-app.get("/admin", (req, res) => {
-  res.send("Admin Dashboard API");
-});
-
-app.get("/teacher", (req, res) => {
-  res.send("Teacher Dashboard API");
-});
-
-app.get("/student", (req, res) => {
-  res.send("Student Dashboard API");
+  res.send("Backend + MongoDB running");
 });
 
 const PORT = 5000;
